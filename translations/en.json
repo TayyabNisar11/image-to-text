@@ -1,0 +1,33 @@
+{
+  "common": {
+    "companyName": "Image To Text",
+    "companyDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "copyright": "Copyright",
+    "reservedRights": "All Rights Reserved",
+    "aboutusTitle": "About Us",
+    "contactusTitle": "Contact Us",
+    "privacyAndPolicy": "Privacy And Policy",
+    "termAndCondition": "Terms & Conditions",
+    "latestBlogsTitle": "Latest Blogs",
+    "socials": "Socials",
+    "getInTouch": "Get in touch",
+    "contactusPageDescription": "Get in touch with us to learn more about our services.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "message": "Message",
+    "sendMessageButton": "Send Message",
+    "yourMessage": "Your Message"
+  },
+  "aboutUs": {
+    "title": "We’re transforming how you convert images to text.",
+    "description": "Our image-to-text converter makes it easy to extract text from any image accurately and quickly. Whether for academic, professional, or personal use, our tool simplifies the digitization process.",
+    "missionTitle": "Our Mission",
+    "missionDescription": "To empower individuals and organizations by providing a user-friendly and efficient image-to-text conversion solution that enhances productivity and accessibility.",
+    "stats": {
+      "imagesProcessed": "Images processed daily",
+      "textAccuracy": "Text accuracy rate",
+      "usersServed": "Users served globally"
+    }
+  }
+}
