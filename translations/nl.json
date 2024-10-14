@@ -1,6 +1,37 @@
 {
-  "HomePage": {
-    "title": "netherland world!",
-    "about": "Go to the about netherland page"
+  "common": {
+    "companyName": "Image To Text",
+    "companyDescription": "Lorem Ipsum is slechts dummytekst uit de drukkerij- en zetterij-industrie.",
+    "copyright": "Copyright",
+    "reservedRights": "Alle Rechten Voorbehouden",
+    "aboutusTitle": "Over Ons",
+    "contactusTitle": "Contacteer Ons",
+    "privacyAndPolicy": "Privacybeleid",
+    "termAndCondition": "Algemene Voorwaarden",
+    "latestBlogsTitle": "Laatste Blogs",
+    "socials": "Sociale Media",
+    "getInTouch": "Neem contact op",
+    "contactusPageDescription": "Neem contact met ons op om meer te weten te komen over onze diensten.",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "email": "E-mail",
+    "message": "Bericht",
+    "sendMessageButton": "Verzend Bericht",
+    "yourMessage": "Uw Bericht"
+  },
+  "aboutUs": {
+    "title": "We transformeren hoe je afbeeldingen naar tekst converteert.",
+    "description": "Onze afbeelding-naar-tekst converter maakt het eenvoudig om nauwkeurig en snel tekst uit elke afbeelding te halen. Of het nu voor academisch, professioneel of persoonlijk gebruik is, onze tool vereenvoudigt het digitaliseringsproces.",
+    "missionTitle": "Onze Missie",
+    "missionDescription": "Individuen en organisaties versterken door een gebruiksvriendelijke en efficiënte afbeelding-naar-tekst conversieoplossing te bieden die productiviteit en toegankelijkheid verbetert.",
+    "stats": {
+      "imagesProcessed": "Afbeeldingen dagelijks verwerkt",
+      "textAccuracy": "Tekstnauwkeurigheidspercentage",
+      "usersServed": "Gebruikers wereldwijd bediend"
+    }
+  },
+  "Success": {
+    "title": "Betaling Voltooid!",
+    "message": "Bedankt voor het voltooien van uw veilige online betaling."
   }
 }

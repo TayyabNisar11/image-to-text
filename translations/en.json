@@ -29,5 +29,9 @@
       "textAccuracy": "Text accuracy rate",
       "usersServed": "Users served globally"
     }
+  },
+  "Success": {
+    "title": "Payment Done!",
+    "message": "Thank you for completing your secure online payment."
   }
 }

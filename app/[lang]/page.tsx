@@ -1,43 +1,50 @@
-import OCRPage from "@/components/OCRPage";
-import HowItWorks from "@/components/homepage/how-it-works";
-import { AccordionComponent } from "@/components/homepage/accordion-component";
-import BlogSample from "@/components/homepage/blog-samples";
-import HeroSection from "@/components/homepage/hero-section";
-import MarketingCards from "@/components/homepage/marketing-cards";
-import Pricing from "@/components/homepage/pricing";
-import SideBySide from "@/components/homepage/side-by-side";
-import PageWrapper from "@/components/wrapper/page-wrapper";
-import config from "@/config";
-import Features from "@/components/homepage/features";
+import Home from "@/components/homepage";
+import type { Metadata } from "next";
 
-export default async function Home() {
+export const metadata: Metadata = {
+  title: "Image to Text Converter - Convert JPG, PNG to Editable Text",
+  description:
+    "Convert images to text with our advanced Image to Text Converter. Handle multiple images like JPG, PNG, and more, and extract editable text with high accuracy.",
+  keywords: [
+    "image to text",
+    "OCR",
+    "image text converter",
+    "jpg to text",
+    "png to text",
+    "text extraction",
+    "editable text",
+    "image conversion",
+    "optical character recognition",
+    "free online tool",
+  ],
+  openGraph: {
+    title: "Free Image to Text Converter",
+    description:
+      "Use our free Image to Text Converter to extract text from JPG, PNG, and other formats quickly and accurately.",
+    url: "https://ocr.com",
+    type: "website",
+    images: [
+      {
+        url: "https://ocr.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Image to Text Converter",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@your_site",
+    title: "Image to Text Converter",
+    description:
+      "Convert images to text with our advanced Image to Text Converter. Handle multiple images like JPG, PNG, and more, and extract editable text with high accuracy.",
+  },
+};
+
+export default async function HomePage() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center w-full mt-[1rem] p-3">
-        {/* <HeroSection /> */}
-        <OCRPage />
-      </div>
-      <div className=" bg-gray-50 mt-[1rem] p-3">
-        <HowItWorks />
-      </div>
-      <div className=" container mx-auto mt-[1rem] p-3">
-        <Features />
-      </div>
-      {/* <div className="flex my-[8rem] w-full justify-center items-center">
-        <SideBySide />
-      </div>
-      <div className="flex flex-col p-2 w-full justify-center items-center">
-        <MarketingCards />
-      </div> */}
-      <div className="bg-gray-50 mt-[1rem] p-3 mb-10">
-        <BlogSample />
-      </div>
-      {/* {config.auth.enabled && config.payments.enabled && ( */}
-      <div><Pricing /></div>
-      {/* //)} */}
-      {/* //<div className="flex justify-center items-center w-full my-[8rem]"> */}
-      {/* <AccordionComponent /> */}
-      {/* <///div> */}
+      <Home />
     </>
   );
 }

@@ -51,12 +51,13 @@ model subscriptions {
 model subscriptions_plans {
   id           Int      @id @default(autoincrement())
   created_time DateTime @default(now())
-  plan_id      String
   name         String
   description  String
   amount       String
   currency     String
   interval     String
+  recurring    Boolean @default(true)
+  stripe_price_id String?
 }
 
 model invoices {

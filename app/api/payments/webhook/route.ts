@@ -9,8 +9,8 @@ export async function POST(req: NextRequest) {
   const cookieStore = cookies();
 
   const supabase: any = createServerClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_SERVICE_KEY!,
     {
       cookies: {
         get(name: string) {
@@ -48,15 +48,17 @@ async function handleSubscriptionEvent(
     });
   }
 
-  const subscriptionData: any = {
+  let subscriptionData: any = {
     subscription_id: subscription.id,
     stripe_user_id: subscription.customer,
     status: subscription.status,
     start_date: new Date(subscription.created * 1000).toISOString(),
-    plan_id: subscription.items.data[0]?.price.id,
+    stripe_price_id: subscription.items.data[0]?.price.id,
     user_id: subscription.metadata?.userId || "",
     email: customerEmail,
   };
+
+  console.log("subscriptionData", subscriptionData);
 
   let data, error;
   if (type === "deleted") {
@@ -79,11 +81,13 @@ async function handleSubscriptionEvent(
       }
     }
   } else {
+    subscriptionData = {
+      ...subscriptionData,
+      plan_id: +subscription.metadata.subscriptionId,
+    };
     ({ data, error } = await supabase
       .from("subscriptions")
-      [type === "created" ? "insert" : "update"](
-        type === "created" ? [subscriptionData] : subscriptionData
-      )
+      .upsert(subscriptionData)
       .match({ subscription_id: subscription.id })
       .select());
   }
@@ -243,6 +247,8 @@ async function webhooksHandler(
       sig!,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
+
+    console.log("Type=>>>>>>>>>>", event.type);
 
     switch (event.type) {
       case "customer.subscription.created":

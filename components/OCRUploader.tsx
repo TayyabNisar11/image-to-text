@@ -17,6 +17,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Plan } from "./homepage/subscription";
 
 export type FileState =
   | "idle"
@@ -32,12 +33,16 @@ export interface OCRFile {
   result: string | null;
   error?: string;
 }
+interface OCRUploaderProps {
+  plan: Plan | undefined;
+}
 
-const MAX_FREE_FILES = 3;
 const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB
 const ALLOWED_FILE_TYPES = ["image/*", "application/pdf"];
 
-const OCRUploader: React.FC = () => {
+const OCRUploader: React.FC<OCRUploaderProps> = ({ plan }) => {
+  const planFeatures: any = plan?.plan_features?.[0] ?? undefined;
+  const MAX_FILES = planFeatures?.max_images_at_once || 3;
   const [files, setFiles] = useState<OCRFile[]>([]);
   const [overallState, setOverallState] = useState<FileState>("idle");
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
@@ -50,15 +55,12 @@ const OCRUploader: React.FC = () => {
       const totalFiles = files.length + newFiles.length;
       console.log("Total files would be:", totalFiles);
 
-      if (totalFiles > MAX_FREE_FILES) {
+      if (totalFiles > MAX_FILES) {
         console.log("Limit exceeded, showing upgrade modal");
         setShowUpgradeModal(true);
 
-        if (files.length < MAX_FREE_FILES) {
-          const allowedNewFiles = newFiles.slice(
-            0,
-            MAX_FREE_FILES - files.length
-          );
+        if (files.length < MAX_FILES) {
+          const allowedNewFiles = newFiles.slice(0, MAX_FILES - files.length);
           console.log("Adding", allowedNewFiles.length, "files");
           const ocrFiles = allowedNewFiles.map((file) => ({
             file,
@@ -173,13 +175,13 @@ const OCRUploader: React.FC = () => {
           OCR File Uploader
         </h2>
         <p className="text-text-light dark:text-text-dark">
-          {files.length} / {MAX_FREE_FILES} Files Uploaded
+          {files.length} / {MAX_FILES} Files Uploaded
         </p>
       </div>
 
       <FileUploader
         onFileUpload={addFiles}
-        maxFiles={MAX_FREE_FILES}
+        maxFiles={MAX_FILES}
         maxSize={MAX_FILE_SIZE}
         acceptedFileTypes={ALLOWED_FILE_TYPES}
         filesUploaded={files.length > 0}

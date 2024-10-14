@@ -1,40 +1,7 @@
+import { articles } from "@/data/blogs";
 import { TITLE_TAILWIND_CLASS } from "@/utils/constants";
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 export default function BlogSample() {
-  const articles = [
-    {
-      id: 1,
-      image:
-        "https://seo-heist.s3.amazonaws.com/user_2cxTR5I0BjOLeNCnee3qUze0LUo/1af01aca-6ce1-4a3f-8e54-e945e3104889.png",
-      title: "The Importance of Storytelling in Modern Branding",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      href: "/blog/test",
-    },
-    {
-      id: 2,
-      image:
-        "https://seo-heist.s3.amazonaws.com/user_2cxTR5I0BjOLeNCnee3qUze0LUo/96bf3bb0-9e15-4745-b966-91d719651429.png",
-      title: "How to Choose the Right Dog for Your Lifestyle",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      href: "/blog/test",
-    },
-    {
-      id: 3,
-      image:
-        "https://seo-heist.s3.amazonaws.com/user_2cxTR5I0BjOLeNCnee3qUze0LUo/36292d36-cfae-4106-8d59-ace222f4bc82.png",
-      title: "Top Automation Testing Suites for Seamless Software Testing",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      href: "/blog/test",
-    },
-  ];
-
   return (
     <div className="container mx-auto flex flex-col justify-center items-center ">
       <div className="flex flex-col items-center p-3 w-full">
@@ -71,13 +38,13 @@ export default function BlogSample() {
                 </div>
                 <div className="group relative">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <a href={post.href}>
+                    <Link href={post.href}>
                       <span className="absolute inset-0" />
                       {post.title}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                    {post.description}
+                    {post.shortDescription}
                   </p>
                 </div>
               </div>

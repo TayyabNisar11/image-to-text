@@ -157,11 +157,60 @@ const config: Config = {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         "background-shine": "background-shine 2s linear infinite",
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.gray.800"),
+            h1: {
+              fontWeight: "700",
+              fontSize: "2rem",
+              marginBottom: theme("spacing.4"),
+            },
+            h2: {
+              fontWeight: "600",
+              fontSize: "1.75rem",
+              marginBottom: theme("spacing.3"),
+            },
+            h3: {
+              fontWeight: "600",
+              fontSize: "1.5rem",
+              marginBottom: theme("spacing.2"),
+            },
+            p: {
+              marginBottom: theme("spacing.4"),
+              lineHeight: "1.75",
+            },
+            ul: {
+              listStyleType: "disc",
+              paddingLeft: theme("spacing.6"),
+            },
+            ol: {
+              listStyleType: "decimal",
+              paddingLeft: theme("spacing.6"),
+            },
+            table: {
+              width: "100%",
+              borderCollapse: "collapse",
+              marginTop: theme("spacing.6"),
+            },
+            "th, td": {
+              border: `1px solid ${theme("colors.gray.300")}`,
+              padding: theme("spacing.2"),
+              textAlign: "left",
+            },
+            th: {
+              backgroundColor: theme("colors.gray.100"),
+              fontWeight: "600",
+            },
+          },
+        },
+      }),
     },
   },
   // Merging plugins, adding any unique plugins from both files
   plugins: [
     require("tailwindcss-animate"), // Assuming require is resolved in your environment
+    require("@tailwindcss/typography"),
     // Add other unique plugins here
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
